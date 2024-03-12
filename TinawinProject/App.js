@@ -1,54 +1,69 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native';
-const logoImg = require("./assets/totoro ico.png");
-const backgroundImage = require("./assets/background.png");
-
+import { StyleSheet, Text, View, Alert, Image, ScrollView, TextInput, Button } from 'react-native';
+const showAlert = () =>(
+Alert.alert('Alerts', 'No Pain, No Gain.')
+);
 export default function App() {
-  return (
-    <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <Image source={logoImg} style={{ width: 300, height: 270, borderRadius: 5 }} />
-        <Text>
-  <Text style={[styles.boldText, {fontSize: 25}]}>Full Name:</Text> 
-  <Text style={{fontSize: 20}}> Allyssa J. Tinawin</Text>
+return (
+<ScrollView showsHorizontalScrollIndicator={false}>
+<View style={styles.container}>
+<Text style={styles.topText}>The Wind Rises</Text>
+<Image style={styles.image1} source={{
+uri: 'https://darkroom.bbfc.co.uk/1920/638cf80e177a97d111400d293b4be015:0eb2daa0a93c8bee204896d6d08ab525/my-neighbour-totoro.jpeg'
+}} />
+{}
+<Image style={styles.image1} source={require('./assets/amsterdam.jpg')} />
+<Image style={styles.image1} source={require('./assets/greenland.jpg')} />
+<Image style={styles.image1} source={require('./assets/japan.jpg')} />
+<Image style={styles.image1} source={require('./assets/ecuador.jpg')} />
+<Text style={styles.baseText}> AMSTERDAM, GREENLAND, JAPAN, AND ECUADOR.
+<Text style={styles.innerText}> I want to leave my country, Philippines. </Text>
 </Text>
-<Text>
-  <Text style={[styles.boldText, {fontSize: 25}]}>Birthdate:</Text> 
-  <Text style={{fontSize: 20}}> September 25, 2003</Text>
-</Text>
-<Text>
-  <Text style={[styles.boldText, {fontSize: 25}]}>Block and Year:</Text> 
-  <Text style={{fontSize: 20}}> BSIT 3-2</Text>
-</Text>
-<Text>
-  <Text style={[styles.boldText, {fontSize: 25}]}>Hobbies:</Text> 
-  <Text style={{fontSize: 20}}> My hobbies are staying up late for things that don't make sense.</Text>
-</Text>
-    <Text>
-  <Text style={[styles.boldText, {fontSize: 25}]}>Experience as a BSIT Student:</Text> 
-  <Text style={{fontSize: 20, textAlign: 'justify'}}> As a BSIT student and at the same time, a local council officer/student leader, {'\n'}I've faced challenges in subjects like programming and networking but gained valuable hands-on experience.{'\n'}Collaboration with classmates and support from professors kept me motivated.{'\n'}Despite setbacks, my passion for technology drives me forward. I'm eager for the opportunities ahead in the future.</Text>
-</Text>
-        
-        <StatusBar style="auto" />
-      </View>
-    </ImageBackground>
-  );
+{}
+<TextInput style={styles.input1} placeholder='Tap to input text'/>
+<Button style={styles.btnopen} title='CLICK TO TRIGGER ALERT' onPress={showAlert}/>
+<StatusBar style="auto" />
+</View>
+</ScrollView>
+);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.5)', 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  boldText: {
-    fontWeight: 'bold',
-  },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: "cover",
-    width: '100%', 
-    height: '100%' 
-  }
+container: {
+flex: 1,
+backgroundColor: 'blue',
+alignItems: 'center',
+justifyContent: 'center',
+resizeMode: 'cover',
+},
+baseText: {
+fontWeight: 'bold',
+fontSize: 20,
+},
+innerText: {
+color: 'red',
+},
+image1: {
+width: 250,
+height: 200,
+margin: 5,
+borderStyle: 'solid',
+borderWidth: 5,
+borderColor: 'white',
+},
+input1: {
+height: 30,
+width: 300,
+borderWidth: 2,
+padding: 10,
+margin: 5,
+},
+btnopen: {
+height: 30,
+width: 300,
+},
+topText: {
+fontWeight: 'bold',
+fontSize: 20,
+}
 });
